@@ -1,8 +1,4 @@
 
-Sure! Here is a refined version of your project description, structured as a professional GitHub README. I have polished the content to sound more natural and engaging in English.
-
-***
-
 # AOE: Ask OpenWebUI Everywhere
 
 **AOE** is a browser extension designed to integrate [OpenWebUI](https://github.com/open-webui/open-webui) directly into your browsing experience.
