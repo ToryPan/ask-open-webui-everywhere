@@ -1,5 +1,8 @@
 const webview = document.getElementById('targetFrame');
 const refreshBtn = document.getElementById('refreshBtn');
+const screenBtn = document.getElementById('screenBtn');
+const pasteBtn = document.getElementById('pasteBtn');
+
 
 // 1. Initial load URL
 function loadIframe() {
@@ -22,7 +25,7 @@ refreshBtn.addEventListener('click', () => {
   webview.src = webview.src;
 });
 
-document.getElementById('pasteBtn').addEventListener('click', async () => {
+pasteBtn.addEventListener('click', async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab) return;
 
@@ -92,6 +95,23 @@ document.getElementById('pasteBtn').addEventListener('click', async () => {
 
   const extractedText = results[0].result;
   // Send to the iframe inside the sidebar
-  const iframe = document.getElementById('targetFrame');
-  iframe.contentWindow.postMessage({ type: 'EXECUTE_PASTE', text: extractedText }, '*');
+
+  webview.contentWindow.postMessage({ type: 'EXECUTE_PASTE',contentType: 'text', data: extractedText }, '*');
+});
+
+// 2. Insert Screen
+screenBtn.addEventListener('click', async () => {
+  try {
+    // capture screen
+    const dataUrl = await chrome.tabs.captureVisibleTab(null, { format: 'png' });
+    
+    // send to iframe
+    webview.contentWindow.postMessage({ 
+      type: 'EXECUTE_PASTE', 
+      contentType: 'image', 
+      data: dataUrl 
+    }, '*');
+  } catch (e) {
+    console.error("Screenshot failed", e);
+  }
 });

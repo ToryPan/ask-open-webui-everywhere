@@ -122,7 +122,7 @@
       cursor: pointer;
       border: none;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       transition: all 0.2s;
       color: white;
@@ -133,6 +133,8 @@
 
     #pasteBtn { background: var(--accent-gradient); }
     #pasteBtn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    #screenBtn { background: var(--accent-gradient); } 
+    #screenBtn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
     .icon { width: 14px; height: 14px; fill: currentColor; }
 
@@ -166,10 +168,17 @@
       <svg class="icon" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
       Refresh
     </button>
-    <button id="pasteBtn" class="btn">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5 7L9 10l-2.5 6L4 18.5 6.5 21 9 15l2.5 6L14 18.5 11.5 16zm6.5 2l1.25-2.75L23 14l-2.75-1.25L19 10l-1.25 2.75L15 14l2.75 1.25L19 18z"/></svg>
-      Ask AI
+  
+    <button id="screenBtn" class="btn">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Insert Screen
     </button>
+ 
+    <button id="pasteBtn" class="btn">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      Insert Text
+    </button>
+
   </div>
 
   <iframe id="targetFrame" src="about:blank"></iframe>
